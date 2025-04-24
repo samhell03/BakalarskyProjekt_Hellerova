@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MyApp",
-    "slug": "MyApp",
+    "name": "Roamly",
+    "slug": "Roamly",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,6 +12,16 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    
+  "dependencies": {
+  "expo": "~52.0.46",
+  "react-native": "0.76.9",
+  "react-native-async-storage/async-storage": "1.23.1",
+  "react-native-web": "~0.19.13",
+  "react-native-svg": "15.8.0",
+  "expo-sqlite": "^10.1.1"
+  },
+
     "ios": {
       "supportsTablet": true
     },
@@ -23,6 +33,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-sqlite"
+    ]
   }
 }
