@@ -21,6 +21,11 @@ Aplikace **Roamly** slouží k plánování výletů a správě balicích seznam
 - Jazyk: **JavaScript**
 - Platforma: **Android / iOS**
 
+##  Jak aplikaci spustit a nainstalovat
+### 1. Instalace Expo CLI
+```bash
+npm install -g expo-cli
+
 ---
 
 ##  Ukázky z aplikace
