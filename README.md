@@ -26,20 +26,21 @@ Aplikace **Roamly** slouží k plánování výletů a správě balicích seznam
 ##  Ukázky z aplikace
 <table>
   <tr>
-    <td style="text-align: center; vertical-align: middle;">
-      <img src="./assets/Home.jpg" alt="Domovská obrazovka" width="230" style="display: block; margin: 0 auto;" />
+    <td align="center">
+      <img src="./assets/Home.jpg" alt="Domovská obrazovka" width="230" />
     </td>
-    <td style="text-align: center; vertical-align: middle;">
-      <img src="./assets/Form.jpg" alt="Formulář pro přidání výletu" width="230" style="display: block; margin: 0 auto;" />
+    <td align="center">
+      <img src="./assets/Form.jpg" alt="Formulář pro přidání výletu" width="230" />
     </td>
   </tr>
   <tr>
-    <td style="text-align: center; vertical-align: middle;">
-      <img src="./assets/Trips01.jpg" alt="Přehled výletů 1" width="230" style="display: block; margin: 0 auto;" />
-      <img src="./assets/Trips02.jpg" alt="Přehled výletů 2" width="230" style="display: block; margin: 0 auto;" />
+    <td align="center">
+      <img src="./assets/Trips01.jpg" alt="Přehled výletů 1" width="230" />
+      <br/>
+      <img src="./assets/Trips02.jpg" alt="Přehled výletů 2" width="230" />
     </td>
-    <td style="text-align: center; vertical-align: middle;">
-      <img src="./assets/Calendar.jpg" alt="Kalendář s naplánovanými výlety" width="230" style="display: block; margin: 0 auto;" />
+    <td align="center">
+      <img src="./assets/Calendar.jpg" alt="Kalendář s naplánovanými výlety" width="230" />
     </td>
   </tr>
 </table>
