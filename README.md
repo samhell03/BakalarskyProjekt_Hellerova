@@ -24,5 +24,4 @@ Aplikace **Roamly** slouží k plánování výletů a správě balicích seznam
 ---
 
 ## 📷 Ukázky z aplikace
-#### Domovská obrazovka
-<img src="./assets/Home.jpg>
+![Domovská obrazovka](./assets/Home.jpg)
