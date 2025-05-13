@@ -49,8 +49,8 @@ Po dokončení build procesu obdržíte odkaz ke stažení APK nebo IPA souboru.
 - Stáhněte soubor do svého zařízení a spusťte instalaci
 - U Android zařízení je potřeba povolit instalaci aplikací z neznámých zdrojů
 ### 5. Alternativně: používání přes Expo Go
-Pokud nechcete aplikaci instalovat napevno, lze ji spustit přímo přes aplikaci Expo
-Go, která je dostupná v obchodech App Store či Google Play.
+Pokud nechcete aplikaci instalovat napevno, lze ji spustit přímo přes aplikaci **Expo
+Go**, která je dostupná v obchodech App Store či Google Play.
 - V terminálu prostředí spusťe příkaz:
 ```bash
 npx expo start
