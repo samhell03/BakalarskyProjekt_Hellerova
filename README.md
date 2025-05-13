@@ -25,23 +25,30 @@ Aplikace **Roamly** slouží k plánování výletů a správě balicích seznam
 
 ##  Ukázky z aplikace
 
-<h3>Domovská obrazovka</h3>
-<div style="display: flex; justify-content: flex-start; gap: 10px;">
-  <img src="./assets/Home.jpg" alt="Domovská obrazovka" width="230" />
-</div>
-
-<h3>Formulář pro přidání výletu</h3>
-<div style="display: flex; justify-content: flex-start; gap: 10px;">
-  <img src="./assets/Form.jpg" alt="Formulář pro přidání výletu" width="230" />
-</div>
-
-<h3>Přehled výletů</h3>
-<div style="display: flex; justify-content: flex-start; gap: 10px;">
-  <img src="./assets/Trips01.jpg" alt="Přehled výletů 1" width="230" />
-  <img src="./assets/Trips02.jpg" alt="Přehled výletů 2" width="230" />
-</div>
-
-<h3>Kalendář s naplánovanými výlety</h3>
-<div style="display: flex; justify-content: flex-start; gap: 10px;">
-  <img src="./assets/Calendar.jpg" alt="Kalendář s naplánovanými výlety" width="230" />
-</div>
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <h3>Domovská obrazovka</h3>
+      <img src="./assets/Home.jpg" alt="Domovská obrazovka" width="230" />
+      <p>Popis domovské obrazovky.</p>
+    </td>
+    <td style="text-align: center;">
+      <h3>Formulář pro přidání výletu</h3>
+      <img src="./assets/Form.jpg" alt="Formulář pro přidání výletu" width="230" />
+      <p>Popis formuláře pro přidání výletu.</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <h3>Přehled výletů</h3>
+      <img src="./assets/Trips01.jpg" alt="Přehled výletů 1" width="230" />
+      <img src="./assets/Trips02.jpg" alt="Přehled výletů 2" width="230" />
+      <p>Popis přehledu výletů.</p>
+    </td>
+    <td style="text-align: center;">
+      <h3>Kalendář s naplánovanými výlety</h3>
+      <img src="./assets/Calendar.jpg" alt="Kalendář s naplánovanými výlety" width="230" />
+      <p>Popis kalendáře s naplánovanými výlety.</p>
+    </td>
+  </tr>
+</table>
