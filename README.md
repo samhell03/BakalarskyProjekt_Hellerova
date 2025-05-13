@@ -1,6 +1,6 @@
 # Roamly – Mobilní aplikace pro plánování výletů
 
-Aplikace **Roamly** slouží k plánování výletů a správě balicích seznamů podle typu výletu. Vyvinuto jako bakalářský projekt v rámci studia na **Technické univerzitě v Liberci**.
+Aplikace **Roamly** slouží k plánování výletů a správě balicích seznamů podle typu výletu. Byla vyvinuta jako bakalářský projekt v rámci studia na **Technické univerzitě v Liberci**.
 
 ---
 
