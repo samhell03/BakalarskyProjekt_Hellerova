@@ -26,21 +26,32 @@ Aplikace **Roamly** slouží k plánování výletů a správě balicích seznam
 ##  Ukázky z aplikace
 <table>
   <tr>
-    <td align="center">
-      <img src="./assets/Home.jpg" alt="Domovská obrazovka" width="230" />
+    <td>
+      <center>
+        <img src="./assets/Home.jpg" alt="Domovská obrazovka" width="230" />
+        <p>Domovská obrazovka</p>
+      </center>
     </td>
-    <td align="center">
-      <img src="./assets/Form.jpg" alt="Formulář pro přidání výletu" width="230" />
+    <td>
+      <center>
+        <img src="./assets/Form.jpg" alt="Formulář pro přidání výletu" width="230" />
+        <p>Formulář pro přidání výletu</p>
+      </center>
     </td>
   </tr>
   <tr>
-    <td align="center">
-      <img src="./assets/Trips01.jpg" alt="Přehled výletů 1" width="230" />
-      <br/>
-      <img src="./assets/Trips02.jpg" alt="Přehled výletů 2" width="230" />
+    <td>
+      <center>
+        <img src="./assets/Trips01.jpg" alt="Přehled výletů 1" width="230" />
+        <img src="./assets/Trips02.jpg" alt="Přehled výletů 2" width="230" />
+        <p>Přehled výletů</p>
+      </center>
     </td>
-    <td align="center">
-      <img src="./assets/Calendar.jpg" alt="Kalendář s naplánovanými výlety" width="230" />
+    <td>
+      <center>
+        <img src="./assets/Calendar.jpg" alt="Kalendář s naplánovanými výlety" width="230" />
+        <p>Kalendář s naplánovanými výlety</p>
+      </center>
     </td>
   </tr>
 </table>
