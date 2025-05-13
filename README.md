@@ -45,17 +45,17 @@ npx expo export && eas build -p android --profile preview
 eas build -p ios --profile preview
 ```
 ### 4. Stažení aplikace do zařízení
-Po dokončení build procesu obdrží uživatel odkaz ke stažení APK nebo IPA souboru.
-- Uživatel si stáhne soubor do svého zařízení a spustí instalaci
+Po dokončení build procesu obdržíte odkaz ke stažení APK nebo IPA souboru.
+- Stáhněte soubor do svého zařízení a spusťte instalaci
 - U Android zařízení je potřeba povolit instalaci aplikací z neznámých zdrojů
 ### 5. Alternativně: používání přes Expo Go
 Pokud nechcete aplikaci instalovat napevno, lze ji spustit přímo přes aplikaci Expo
 Go, která je dostupná v obchodech App Store či Google Play.
-- V terminálu prostředí spustíme příkaz:
+- V terminálu prostředí spusťe příkaz:
 ```bash
 npx expo start
 ```
-- Následně načteme QR kód čímž se aplikace ihned načte a spustí v telefonu.
+- Následně načtěte QR kód čímž se aplikace ihned načte a spustí v telefonu.
 
 
 ---
