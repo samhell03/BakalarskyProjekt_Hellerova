@@ -22,10 +22,29 @@ Aplikace **Roamly** slouží k plánování výletů a správě balicích seznam
 - Platforma: **Android / iOS**
 
 ##  Jak aplikaci spustit a nainstalovat
-### 1. Instalace Expo CLI
+###1. Instalace Expo CLI
+
+V terminálu je nutné nainstalovat nástroj Expo CLI (pokud ještě není nainstalován):
+
 ```bash
 npm install -g expo-cli
 ```
+###2. Přihlášení k Expo účtu
+Je potřeba se přihlásit k Expo účtu pomocí příkazu:
+```bash
+expo login
+```
+###3. Build aplikace pro Android/iOS
+Následujícím příkazem lze spustit proces sestavení aplikace pro konkrétní platformu:
+- Pro Android (APK):
+```bash
+npx expo export && eas build -p android --profile preview
+```
+- Pro iOS (nutné Apple Developer konto):
+```bash
+eas build -p ios --profile preview
+```
+
 ---
 
 ##  Ukázky z aplikace
