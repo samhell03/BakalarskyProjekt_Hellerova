@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, FlatList, Alert, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { getItemsForTrip, insertItem, deleteItem, createItemsTable, insertTentItems, deleteAllItemsForTrip } from './database'; // Import funkcí z databáze
+import { getItemsForTrip, insertItem, deleteItem, createItemsTable, insertTentItems, deleteAllItemsForTrip } from './database';
 
 export default function TentScreen({ route }) {
   const { trip } = route.params;
 
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState('');
-  const [defaultItemsLoaded, setDefaultItemsLoaded] = useState(false); 
+  const [defaultItemsLoaded, setDefaultItemsLoaded] = useState(false);
 
   useEffect(() => {
     const loadItems = async () => {
       try {
-        await createItemsTable(); // Zajistíme, že je tabulka položek vytvořena
+        await createItemsTable();
 
-        let savedItems = await getItemsForTrip(trip.id); // Načteme aktuální položky z databáze
+        let savedItems = await getItemsForTrip(trip.id);
 
-        // Pokud nejsou žádné položky, načteme výchozí položky pro stanování
         if (savedItems.length === 0) {
-          await insertTentItems(trip.id); // Načteme výchozí položky pro stanování
-          savedItems = await getItemsForTrip(trip.id); // Znovu načteme položky po vložení
+          await insertTentItems(trip.id);
+          savedItems = await getItemsForTrip(trip.id);
         }
 
-        setItems(savedItems); // Nastavíme položky do stavu
+        setItems(savedItems);
       } catch (error) {
         console.error('Chyba při načítání položek:', error);
         Alert.alert('Chyba', 'Nepodařilo se načíst položky.');
@@ -33,14 +32,12 @@ export default function TentScreen({ route }) {
     loadItems();
   }, [trip.id]);
 
-  // Funkce pro přidání nové položky
   const handleAddItem = async () => {
     if (newItem.trim() !== '') {
       try {
-        await insertItem(trip.id, newItem.trim()); // Přidáme novou položku do databáze
-        setNewItem(''); // Vyprázdníme input
+        await insertItem(trip.id, newItem.trim());
+        setNewItem('');
 
-        // Načteme položky znovu po přidání
         const updatedItems = await getItemsForTrip(trip.id);
         setItems(updatedItems);
       } catch (error) {
@@ -52,24 +49,22 @@ export default function TentScreen({ route }) {
     }
   };
 
-  // Funkce pro smazání položky
   const handleDeleteItem = async (item) => {
     try {
-      await deleteItem(item.id); // Smažeme položku z databáze
-      const updatedItems = await getItemsForTrip(trip.id); // Načteme položky po smazání
+      await deleteItem(item.id);
+      const updatedItems = await getItemsForTrip(trip.id);
       setItems(updatedItems);
     } catch (error) {
       console.error('Chyba při mazání položky:', error);
     }
   };
 
-  // Funkce pro načtení výchozích položek pro stanování
   const loadDefaultTentItems = async () => {
     try {
-      await deleteAllItemsForTrip(trip.id); // Smažeme všechny položky pro daný výlet
-      await insertTentItems(trip.id); // Znovu vložíme výchozí položky
-      const updatedItems = await getItemsForTrip(trip.id); // Načteme nové položky
-      setItems(updatedItems); // Aktualizujeme stav
+      await deleteAllItemsForTrip(trip.id);
+      await insertTentItems(trip.id);
+      const updatedItems = await getItemsForTrip(trip.id);
+      setItems(updatedItems);
       Alert.alert('Úspěch', 'Výchozí položky byly znovu načteny.');
     } catch (error) {
       console.error('Chyba při načítání výchozích položek:', error);
@@ -77,7 +72,6 @@ export default function TentScreen({ route }) {
     }
   };
 
-  // Funkce pro uložení položek (aktuálně jen jako placeholder)
   const handleSaveItems = async () => {
     try {
       Alert.alert('Položky uloženy', 'Vaše položky byly úspěšně uloženy.');
@@ -114,7 +108,6 @@ export default function TentScreen({ route }) {
         )}
       />
 
-      {/* Input pro přidání nové položky */}
       <TextInput
         style={styles.input}
         placeholder="Přidej vlastní věc..."
@@ -129,7 +122,6 @@ export default function TentScreen({ route }) {
         <Text style={styles.buttonText}>Přidat položku</Text>
       </TouchableOpacity>
 
-      {/* Tlačítko pro uložení položek */}
       <TouchableOpacity style={styles.button} onPress={handleSaveItems}>
         <Text style={styles.buttonText}>Uložit položky</Text>
       </TouchableOpacity>

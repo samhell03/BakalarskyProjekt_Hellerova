@@ -19,7 +19,7 @@ import HuntScreen from './HuntScreen';
 import FestivalScreen from './FestivaScreen';
 import WellnessScreen from './WellnessScreen';
 import HomeScreen from './HomeScreen';
-import TripCalendar from './TripCalendar'; // Import pro nový kalendář
+import TripCalendar from './TripCalendar'; 
 
 const Stack = createNativeStackNavigator();
 function VyletyStack() {

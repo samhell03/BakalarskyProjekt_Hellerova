@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, FlatList, Alert, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Přidáno pro ikonu refresh
-import { getItemsForTrip, insertItem, deleteItem, createItemsTable, insertCampingItems, deleteAllItemsForTrip } from './database'; // Upravíme import
+import Icon from 'react-native-vector-icons/Ionicons';
+import { getItemsForTrip, insertItem, deleteItem, createItemsTable, insertCampingItems, deleteAllItemsForTrip } from './database';
 
 export default function CampingScreen({ route }) {
   const { trip } = route.params;
@@ -54,7 +54,6 @@ export default function CampingScreen({ route }) {
     }
   };
 
-  // Funkce pro refresh na výchozí položky
   const loadDefaultCampingItems = async () => {
     try {
       await deleteAllItemsForTrip(trip.id);
@@ -85,7 +84,6 @@ export default function CampingScreen({ route }) {
         Chystáte se <Text style={styles.strong}>kempovat</Text>, pojďme si společně zabalit!
       </Text>
 
-      {/* Refresh tlačítko */}
       <View style={styles.refreshContainer}>
         <TouchableOpacity onPress={loadDefaultCampingItems}>
           <Icon name="refresh-circle" size={42} color="#FF1493" />

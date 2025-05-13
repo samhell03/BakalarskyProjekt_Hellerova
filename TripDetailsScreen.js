@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, Alert } from 'react-native';
 import { getItemsForTrip, getTripDates } from './database';
 import { Calendar } from 'react-native-calendars';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Import ikony
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function TripDetailsScreen({ route }) {
   const { tripId } = route.params;
@@ -31,14 +31,12 @@ export default function TripDetailsScreen({ route }) {
     const start = new Date(startDate);
     const end = new Date(endDate);
 
-    // Ověření, zda jsou data validní
     if (!startDate || !endDate) return marked;
 
-    let currentDate = new Date(start); // začneme od startDate
+    let currentDate = new Date(start);
     while (currentDate <= end) {
       const dateKey = currentDate.toISOString().split('T')[0];
 
-      // Pokud je to startDate, označíme modře
       if (dateKey === startDate) {
         marked[dateKey] = {
           selected: true,
@@ -46,7 +44,7 @@ export default function TripDetailsScreen({ route }) {
           selectedTextColor: 'white',
         };
       }
-      // Pokud je to endDate, označíme červeně
+
       else if (dateKey === endDate) {
         marked[dateKey] = {
           selected: true,
@@ -54,7 +52,6 @@ export default function TripDetailsScreen({ route }) {
           selectedTextColor: 'white',
         };
       }
-      // Jinak označíme všechny mezi dny fialově
       else {
         marked[dateKey] = {
           selected: true,
@@ -63,7 +60,6 @@ export default function TripDetailsScreen({ route }) {
         };
       }
 
-      // Přejdeme na další den
       currentDate.setDate(currentDate.getDate() + 1);
     }
 
@@ -175,7 +171,6 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
 
-  // Styl pro položky
   itemContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',

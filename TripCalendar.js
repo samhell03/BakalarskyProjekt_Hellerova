@@ -20,12 +20,12 @@ export default function TripCalendar() {
           const tripsData = await getTrips();
 
           const dnes = new Date();
-          dnes.setHours(0, 0, 0, 0); // odeber čas pro přesné porovnání
+          dnes.setHours(0, 0, 0, 0);
 
           const filtrVylety = tripsData.filter((trip) => {
             const startDate = new Date(trip.start_date);
             startDate.setHours(0, 0, 0, 0);
-            return startDate >= dnes; // dnešní a budoucí výlety
+            return startDate >= dnes;
           });
 
           const oznaceni = {};
@@ -69,13 +69,13 @@ export default function TripCalendar() {
 
   const getNextTrip = (futureTrips) => {
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // pro jistotu
+    today.setHours(0, 0, 0, 0);
 
     const sortedTrips = futureTrips
       .filter((trip) => {
         const startDate = new Date(trip.start_date);
         startDate.setHours(0, 0, 0, 0);
-        return startDate > today; // pouze budoucí výlety, ne dnešní
+        return startDate > today;
       })
       .sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
 
@@ -99,15 +99,12 @@ export default function TripCalendar() {
 
   return (
     <View style={styles.container}>
-      {/* Nadpis + zvoneček */}
       <View style={styles.headerRow}>
         <TouchableOpacity onPress={toggleNextTrip}>
           <Icon name={showNextTrip ? 'bell-slash' : 'bell'} size={26} color="#FF1493" />
         </TouchableOpacity>
         <Text style={styles.header}>Kalendář výletů</Text>
       </View>
-
-      {/* Výpis nejbližšího výletu (pevné místo, bez posouvání) */}
       <View style={styles.nextTripWrapper}>
         {showNextTrip && nextTrip ? (
           <View style={styles.nextTripInfo}>

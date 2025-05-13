@@ -20,7 +20,6 @@ export default function EditTripScreen() {
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDateType, setSelectedDateType] = useState(null);
 
-  // Get today's date for validation
   const today = new Date().toISOString().split('T')[0];
 
   useEffect(() => {
@@ -121,7 +120,7 @@ export default function EditTripScreen() {
       {showCalendar && (
         <View style={styles.calendarContainer}>
           <Calendar
-            minDate={today} // Prevent selecting past dates
+            minDate={today} 
             markedDates={{
               [startDate]: { selected: true, selectedColor: 'blue', selectedTextColor: 'white' },
               [endDate]: { selected: true, selectedColor: 'red', selectedTextColor: 'white' },

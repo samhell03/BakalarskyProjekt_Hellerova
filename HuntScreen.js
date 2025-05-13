@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, FlatList, Alert, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Přidáno pro ikonu refresh
-import { getItemsForTrip, insertItem, deleteItem, createItemsTable, insertHutItems, deleteAllItemsForTrip } from './database'; // Upravíme import
+import Icon from 'react-native-vector-icons/Ionicons';
+import { getItemsForTrip, insertItem, deleteItem, createItemsTable, insertHutItems, deleteAllItemsForTrip } from './database';
 
 export default function HuntScreen({ route }) {
   const { trip } = route.params;
@@ -54,7 +54,6 @@ export default function HuntScreen({ route }) {
     }
   };
 
-  // Funkce pro refresh na výchozí položky
   const loadDefaultHuntItems = async () => {
     try {
       await deleteAllItemsForTrip(trip.id);
@@ -84,8 +83,6 @@ export default function HuntScreen({ route }) {
       <Text style={styles.subHeader}>
         Chystáte se <Text style={styles.strong}>na chatu</Text>, pojďme si společně zabalit!
       </Text>
-
-      {/* Refresh tlačítko */}
       <View style={styles.refreshContainer}>
         <TouchableOpacity onPress={loadDefaultHuntItems}>
           <Icon name="refresh-circle" size={42} color="#FF1493" />

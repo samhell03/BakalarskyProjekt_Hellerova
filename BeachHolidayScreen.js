@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, FlatList, Alert, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { getItemsForTrip, insertItem, deleteItem, createItemsTable, insertBeachItems, deleteAllItemsForTrip } from './database'; // Upravíme import
+import { getItemsForTrip, insertItem, deleteItem, createItemsTable, insertBeachItems, deleteAllItemsForTrip } from './database';
 
 export default function BeachHolidayScreen({ route }) {
   const { trip } = route.params;
@@ -54,7 +54,6 @@ export default function BeachHolidayScreen({ route }) {
     }
   };
 
-  // Funkce pro refresh na výchozí položky
   const loadDefaultBeachItems = async () => {
     try {
       await deleteAllItemsForTrip(trip.id);
@@ -85,7 +84,6 @@ export default function BeachHolidayScreen({ route }) {
         Chystáte se na <Text style={styles.strong}>plážovou dovolenou</Text>, pojďme si společně zabalit!
       </Text>
 
-      {/* Refresh tlačítko */}
       <View style={styles.refreshContainer}>
         <TouchableOpacity onPress={loadDefaultBeachItems}>
           <Icon name="refresh-circle" size={42} color="#FF1493" />

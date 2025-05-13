@@ -10,7 +10,7 @@ export default function TripFormScreen({ navigation }) {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
-  const [selectedDateType, setSelectedDateType] = useState(null); // "start" or "end"
+  const [selectedDateType, setSelectedDateType] = useState(null);
 
   useEffect(() => {
     const initializeDatabase = async () => {
@@ -42,15 +42,14 @@ export default function TripFormScreen({ navigation }) {
     }
 
     try {
-      // Převod start a end date na Unix timestamp
       const startTimestamp = new Date(startDate).getTime();
       const endTimestamp = new Date(endDate).getTime();
 
       await insertTrip(
         tripName,
         tripDescription,
-        startTimestamp, // Předáme Unix timestamp
-        endTimestamp,   // Předáme Unix timestamp
+        startTimestamp,
+        endTimestamp,
         country
       );
 
@@ -139,7 +138,6 @@ export default function TripFormScreen({ navigation }) {
         </View>
       )}
 
-      {/* Styled Add Trip Button */}
       <TouchableOpacity style={styles.addButton} onPress={handleAddTrip}>
         <Text style={styles.addButtonText}>Přidat výlet</Text>
       </TouchableOpacity>
@@ -152,8 +150,8 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: '#FFEBF1',
-    justifyContent: 'center', // Center vertically
-    alignItems: 'center',      // Center horizontally
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   header: {
     fontSize: 30,
@@ -173,7 +171,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: '#fff',
     color: '#333',
-    width: '100%', // Make input fields take full width of the container
+    width: '100%',
   },
   dateButton: {
     padding: 12,
@@ -182,26 +180,25 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 15,
     backgroundColor: '#fff',
-    width: '100%', // Make the date picker buttons full width
+    width: '100%',
   },
   dateButtonText: {
     fontSize: 16,
     color: '#333',
-    textAlign: 'center', // Center the text
+    textAlign: 'center',
   },
   calendarContainer: {
     marginBottom: 20,
-    width: '100%', // Ensure calendar takes full width
+    width: '100%',
   },
 
-  // Add Trip button styles
   addButton: {
-    backgroundColor: '#FF1493', // Background color
+    backgroundColor: '#FF1493',
     borderRadius: 8,
     paddingVertical: 12,
     paddingHorizontal: 20,
     marginTop: 20,
-    width: '100%', // Make button full width
+    width: '100%', 
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -65,7 +65,7 @@ export const loadTrips = async () => {
 export const getTrips = async () => {
   const db = await openDatabase();
   const trips = await db.getAllAsync('SELECT * FROM trips');
-  console.log('Výlety z databáze:', trips); // Zkontroluj výlety
+  console.log('Výlety z databáze:', trips);
   return trips;
 };
 
@@ -75,9 +75,7 @@ export const getTrips = async () => {
 export const deleteTrip = async (id) => {
   const db = await openDatabase();
   try {
-    // Nejprve smaž všechny položky, které souvisejí s tímto výletem
     await deleteItemsForTrip(id);
-    // Nyní smaž výlet
     await db.runAsync('DELETE FROM trips WHERE id = ?', id);
   } catch (error) {
     console.error('Chyba při mazání výletu:', error);
@@ -89,7 +87,6 @@ export const updateTrip = async (id, updatedTrip) => {
   const db = await openDatabase();
   const { trip_name, trip_description, start_date, end_date, country } = updatedTrip;
 
-  // Aktualizuj výlet s novými daty pro start a end
   await db.runAsync(
     `UPDATE trips SET trip_name = ?, trip_description = ?, start_date = ?, end_date = ?, country = ? WHERE id = ?`,
     trip_name, trip_description, start_date, end_date, country, id
@@ -101,32 +98,24 @@ export const updateTrip = async (id, updatedTrip) => {
 // Funkce pro získání datumu začátku a konce výletu na základě tripId
 export const getTripDates = async (tripId) => {
   const db = await openDatabase();
-
-  // Úprava SQL dotazu o zemi (country)
   const result = await db.getAllAsync('SELECT start_date, end_date, country FROM trips WHERE id = ?', [tripId]);
 
-  console.log('Datum a země výletu:', result); // Zkontroluj výsledek
-
-  // Pokud výsledek není prázdný, vrátíme první záznam s daty a zemí
+  console.log('Datum a země výletu:', result);
   if (result && result.length > 0) {
     return {
       startDate: result[0].start_date,
       endDate: result[0].end_date,
-      country: result[0].country // Přidání země do výsledku
+      country: result[0].country
     };
   }
 
-  // Pokud není žádný záznam, vrátíme prázdné hodnoty
   return {
     startDate: '',
     endDate: '',
-    country: '' // Přidání prázdné hodnoty pro zemi
+    country: ''
   };
 };
 
-
-
-// Funkce pro vytvoření tabulky položek (s kaskádovým mazáním)
 export const createItemsTable = async () => {
   const db = await openDatabase();
   await db.execAsync(`
@@ -139,7 +128,6 @@ export const createItemsTable = async () => {
   `);
 };
 
-// Funkce pro vložení nové položky (bez statusu)
 export const insertItem = async (tripId, itemName) => {
   const db = await openDatabase();
   try {
@@ -153,7 +141,6 @@ export const insertItem = async (tripId, itemName) => {
   }
 };
 
-// Funkce pro smazání všech položek pro daný výlet
 export const deleteItemsForTrip = async (tripId) => {
   const db = await openDatabase();
   try {

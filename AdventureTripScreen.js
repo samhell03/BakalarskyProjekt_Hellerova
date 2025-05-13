@@ -1,48 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, FlatList, Alert, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Import pro ikony
-import { getItemsForTrip, insertItem, deleteItem, createItemsTable, insertAdventureItems, deleteAllItemsForTrip } from './database'; // Import funkcí z database
-
+import Icon from 'react-native-vector-icons/Ionicons';
+import { getItemsForTrip, insertItem, deleteItem, createItemsTable, insertAdventureItems, deleteAllItemsForTrip } from './database';
 export default function AdventureTripScreen({ route }) {
-  const { trip } = route.params; // Získáme trip_id z parametru
-
-  const [items, setItems] = useState([]); // Seznam položek pro dobrodružný výlet
-  const [newItem, setNewItem] = useState(''); // Nová položka k přidání
-
+  const { trip } = route.params;
+  const [items, setItems] = useState([]);
+  const [newItem, setNewItem] = useState('');
   useEffect(() => {
     const loadItems = async () => {
       try {
-        await createItemsTable(); // Ujistíme se, že tabulka položek existuje
-
-        // Načteme položky pro tento výlet
+        await createItemsTable();
         let savedItems = await getItemsForTrip(trip.id);
-
-        // Pokud nejsou položky, vložíme výchozí položky pro dobrodružný výlet
         if (savedItems.length === 0) {
-          await insertAdventureItems(trip.id); // Vložíme výchozí položky
-          savedItems = await getItemsForTrip(trip.id); // Načteme je po vložení
+          await insertAdventureItems(trip.id);
+          savedItems = await getItemsForTrip(trip.id);
         }
 
-        setItems(savedItems); // Uložíme položky do stavu
+        setItems(savedItems);
       } catch (error) {
         console.error('Chyba při načítání položek:', error);
         Alert.alert('Chyba', 'Nepodařilo se načíst položky.');
       }
     };
 
-    loadItems(); // Zavoláme funkci pro načtení položek
-  }, [trip.id]); // Tento efekt se spustí při změně trip.id
+    loadItems();
+  }, [trip.id]);
 
-  // Funkce pro přidání nové položky
   const handleAddItem = async () => {
     if (newItem.trim() !== '') {
       try {
-        await insertItem(trip.id, newItem.trim()); // Uložíme položku do databáze
-        setNewItem(''); // Vyprázdníme input
+        await insertItem(trip.id, newItem.trim());
+        setNewItem('');
 
-        // Načteme položky znovu a aktualizujeme stav
         const updatedItems = await getItemsForTrip(trip.id);
-        setItems(updatedItems); // Aktualizujeme seznam položek
+        setItems(updatedItems);
       } catch (error) {
         console.error('Chyba při přidávání položky:', error);
         Alert.alert('Chyba', 'Nepodařilo se přidat položku.');
@@ -51,25 +42,22 @@ export default function AdventureTripScreen({ route }) {
       Alert.alert('Chyba', 'Položka nesmí být prázdná!');
     }
   };
-
-  // Funkce pro smazání položky
   const handleDeleteItem = async (item) => {
     try {
-      await deleteItem(item.id); // Smazání položky z databáze
-      const updatedItems = await getItemsForTrip(trip.id); // Načteme položky znovu
-      setItems(updatedItems); // Aktualizujeme seznam položek
+      await deleteItem(item.id);
+      const updatedItems = await getItemsForTrip(trip.id);
+      setItems(updatedItems);
     } catch (error) {
       console.error('Chyba při mazání položky:', error);
     }
   };
 
-  // Funkce pro načtení výchozích položek pro dobrodružný výlet
   const loadDefaultAdventureTripItems = async () => {
     try {
-      await deleteAllItemsForTrip(trip.id); // Smažeme všechny položky pro daný výlet
-      await insertAdventureItems(trip.id); // Znovu vložíme výchozí položky
-      const updatedItems = await getItemsForTrip(trip.id); // Načteme nové položky
-      setItems(updatedItems); // Aktualizujeme stav
+      await deleteAllItemsForTrip(trip.id);
+      await insertAdventureItems(trip.id);
+      const updatedItems = await getItemsForTrip(trip.id);
+      setItems(updatedItems);
       Alert.alert('Úspěch', 'Výchozí položky byly znovu načteny.');
     } catch (error) {
       console.error('Chyba při načítání výchozích položek:', error);
@@ -77,7 +65,6 @@ export default function AdventureTripScreen({ route }) {
     }
   };
 
-  // Funkce pro uložení seznamu do databáze
   const handleSaveItems = async () => {
     try {
       Alert.alert('Seznam uložen', 'Váš seznam byl úspěšně uložen.');
@@ -95,14 +82,12 @@ export default function AdventureTripScreen({ route }) {
         Chystáte se na <Text style={styles.strong}>dobrodružný výlet</Text>, pojďme si společně zabalit!
       </Text>
 
-      {/* Tlačítko pro refresh */}
       <View style={styles.refreshContainer}>
         <TouchableOpacity onPress={loadDefaultAdventureTripItems}>
           <Icon name="refresh-circle" size={42} color="#FF1493" />
         </TouchableOpacity>
       </View>
 
-      {/* Zobrazení seznamu položek */}
       <FlatList
         data={items}
         keyExtractor={(item) => item.id.toString()}
@@ -116,7 +101,6 @@ export default function AdventureTripScreen({ route }) {
         )}
       />
 
-      {/* Input pro přidání nové položky */}
       <TextInput
         style={styles.input}
         placeholder="Přidej vlastní věc..."
@@ -127,12 +111,10 @@ export default function AdventureTripScreen({ route }) {
         returnKeyType="done"
       />
 
-      {/* Tlačítko pro přidání položky */}
       <TouchableOpacity style={styles.button} onPress={handleAddItem}>
         <Text style={styles.buttonText}>Přidat položku</Text>
       </TouchableOpacity>
 
-      {/* Tlačítko pro uložení položek */}
       <TouchableOpacity style={styles.button} onPress={handleSaveItems}>
         <Text style={styles.buttonText}>Uložit položky</Text>
       </TouchableOpacity>

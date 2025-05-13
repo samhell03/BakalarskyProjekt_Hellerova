@@ -18,12 +18,12 @@ const isFutureTrip = (startDate) => {
 
 const isPastTrip = (endDate) => {
   const today = new Date();
-  today.setHours(0, 0, 0, 0); // odstranit čas
+  today.setHours(0, 0, 0, 0);
 
   const date = new Date(endDate);
-  date.setHours(0, 0, 0, 0); // odstranit čas
+  date.setHours(0, 0, 0, 0);
 
-  return date < today; // bude true až den po endDate
+  return date < today; 
 };
 
 

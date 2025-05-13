@@ -80,17 +80,16 @@ export default function PackingScreen({ route, navigation }) {
       await setNewDefaults(type);
       setSelectedType(type);
       Alert.alert(`Vybrán typ: ${type}`);
-      navigateToPackingScreen(type); // Navigace při výběru typu
+      navigateToPackingScreen(type);
     } else if (selectedType === type) {
       navigateToPackingScreen(type);
     } else {
-      // Přepis typu v editačním režimu
       await AsyncStorage.setItem(`selectedType_${trip.id}`, type);
       await clearOldDefaults();
       await setNewDefaults(type);
       setSelectedType(type);
       Alert.alert('Typ výletu byl změněn', `Nyní: ${type}`);
-      navigateToPackingScreen(type); // Navigace po změně typu
+      navigateToPackingScreen(type); 
     }
   };
 
