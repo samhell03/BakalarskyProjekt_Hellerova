@@ -24,30 +24,29 @@ Aplikace **Roamly** slouží k plánování výletů a správě balicích seznam
 ---
 
 ##  Ukázky z aplikace
-
-<table>
+<table style="width: 100%; text-align: center;">
   <tr>
-    <td style="text-align: center;">
-      <h3>Domovská obrazovka</h3>
-      <img src="./assets/Home.jpg" alt="Domovská obrazovka" width="230" />
+    <td>
+      <h3 style="text-align: center;">Domovská obrazovka</h3>
+      <img src="./assets/Home.jpg" alt="Domovská obrazovka" width="230" style="display: block; margin-left: auto; margin-right: auto;" />
       <p>Popis domovské obrazovky.</p>
     </td>
-    <td style="text-align: center;">
-      <h3>Formulář pro přidání výletu</h3>
-      <img src="./assets/Form.jpg" alt="Formulář pro přidání výletu" width="230" />
+    <td>
+      <h3 style="text-align: center;">Formulář pro přidání výletu</h3>
+      <img src="./assets/Form.jpg" alt="Formulář pro přidání výletu" width="230" style="display: block; margin-left: auto; margin-right: auto;" />
       <p>Popis formuláře pro přidání výletu.</p>
     </td>
   </tr>
   <tr>
-    <td style="text-align: center;">
-      <h3>Přehled výletů</h3>
-      <img src="./assets/Trips01.jpg" alt="Přehled výletů 1" width="230" />
-      <img src="./assets/Trips02.jpg" alt="Přehled výletů 2" width="230" />
+    <td>
+      <h3 style="text-align: center;">Přehled výletů</h3>
+      <img src="./assets/Trips01.jpg" alt="Přehled výletů 1" width="230" style="display: block; margin-left: auto; margin-right: auto;" />
+      <img src="./assets/Trips02.jpg" alt="Přehled výletů 2" width="230" style="display: block; margin-left: auto; margin-right: auto;" />
       <p>Popis přehledu výletů.</p>
     </td>
-    <td style="text-align: center;">
-      <h3>Kalendář s naplánovanými výlety</h3>
-      <img src="./assets/Calendar.jpg" alt="Kalendář s naplánovanými výlety" width="230" />
+    <td>
+      <h3 style="text-align: center;">Kalendář s naplánovanými výlety</h3>
+      <img src="./assets/Calendar.jpg" alt="Kalendář s naplánovanými výlety" width="230" style="display: block; margin-left: auto; margin-right: auto;" />
       <p>Popis kalendáře s naplánovanými výlety.</p>
     </td>
   </tr>
