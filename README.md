@@ -25,7 +25,7 @@ Aplikace **Roamly** slouží k plánování výletů a správě balicích seznam
 ### 1. Instalace Expo CLI
 ```bash
 npm install -g expo-cli
-
+```
 ---
 
 ##  Ukázky z aplikace
