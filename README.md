@@ -13,3 +13,14 @@ Aplikace **Roamly** slouží k plánování výletů a správě balicích seznam
 - Dostupný seznam věcí k zabalení s výchozími položkami podle typu výletu, možnost přidání vlastních
 - Kalendář s přehledem naplánovaných výletů
 - Ukládání dat pomocí **SQLite**
+
+##  Použité technologie
+
+- **React Native** (Expo)
+- **SQLite** přes `expo-sqlite`
+- Jazyk: **JavaScript**
+- Platforma: **Android / iOS**
+
+---
+
+## 📷 Ukázky z aplikace
